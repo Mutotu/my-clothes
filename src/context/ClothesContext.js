@@ -1,3 +1,4 @@
+import DUMMY_DATA from "../../data/DUMMY_DATA";
 import createDataContext from "./createDataContext";
 
 const clothesReducer = (state, action) => {
@@ -16,10 +17,10 @@ const clothesReducer = (state, action) => {
 };
 
 const addCloth = (dispatch) => {
-  return (title, content, callback) => {
-    dispatch({ type: "add_cloth", payload: { title, content } });
-    if (callback) callback();
-  };
+  // return (title, content, callback) => {
+  //   dispatch({ type: "add_cloth", payload: { title, content } });
+  //   if (callback) callback();
+  // };
 };
 
 export const { Context, Provider } = createDataContext(
@@ -27,5 +28,5 @@ export const { Context, Provider } = createDataContext(
   {
     addCloth,
   },
-  [{ title: "TEST", content: "COnetnen", id: 1 }]
+  DUMMY_DATA
 );
