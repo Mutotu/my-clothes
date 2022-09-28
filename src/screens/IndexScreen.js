@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-
+import DUMMY_DATA from "../../data/DUMMY_DATA";
 import {
   View,
   Text,
@@ -12,13 +12,16 @@ import {
 import { Context } from "../context/ClothesContext";
 
 const IndexScreen = ({ navigation }) => {
-  const { state } = useContext(Context);
-  console.log(state);
+  // const { state } = useContext(Context);
+  const [data, setData] = useState(DUMMY_DATA);
   return (
     <View>
-      <Text>Index Screen</Text>
+      <TouchableOpacity onPress={() => navigation.navigate("MyCart")}>
+        <Text>My Cart</Text>
+      </TouchableOpacity>
+
       <FlatList
-        data={state}
+        data={data}
         keyExtractor={(img) => img.id}
         renderItem={({ item }) => {
           console.log(item.img);

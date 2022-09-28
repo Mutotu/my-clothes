@@ -1,4 +1,3 @@
-import DUMMY_DATA from "../../data/DUMMY_DATA";
 import createDataContext from "./createDataContext";
 
 const clothesReducer = (state, action) => {
@@ -7,8 +6,7 @@ const clothesReducer = (state, action) => {
       return [
         ...state,
         {
-          id: Math.floor(Math.random() * 99999),
-          title: action.payload.title,
+          item: action.payload,
         },
       ];
     default:
@@ -21,6 +19,10 @@ const addCloth = (dispatch) => {
   //   dispatch({ type: "add_cloth", payload: { title, content } });
   //   if (callback) callback();
   // };
+
+  return (singleCloth) => {
+    dispatch({ type: "add_cloth", payload: singleCloth });
+  };
 };
 
 export const { Context, Provider } = createDataContext(
@@ -28,5 +30,5 @@ export const { Context, Provider } = createDataContext(
   {
     addCloth,
   },
-  DUMMY_DATA
+  []
 );
